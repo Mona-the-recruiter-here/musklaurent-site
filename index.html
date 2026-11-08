@@ -67,6 +67,13 @@
       linear-gradient(115deg, rgba(255,255,255,0.22) 0%, transparent 18%, transparent 46%, rgba(255,255,255,0.14) 52%, transparent 70%, rgba(0,0,0,0.12) 100%);
     mix-blend-mode: overlay;
   }
+  .eclat-img { position: relative; }
+  .eclat-img::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    mix-blend-mode: screen;
+  }
 </style>
 </head>
 <body>
@@ -109,12 +116,13 @@
   <!-- COLLECTIONS INTRO -->
   <section id="collections" style="padding:140px 64px 40px; text-align:center;">
     <div style="font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--accent);">The Collections</div>
-    <h2 style="font-family:'Cormorant Garamond', serif; font-weight:300; font-size:clamp(32px,4vw,48px); margin:18px 0 0; color:#111111;">One collection, to begin</h2>
+    <h2 style="font-family:'Cormorant Garamond', serif; font-weight:300; font-size:clamp(32px,4vw,48px); margin:18px 0 0; color:#111111;">Two collections, so far</h2>
     <p style="font-size:14px; color:#7A766D; max-width:520px; margin:20px auto 0; line-height:1.8; font-weight:300;">Each collection is a closed set. Prices on request; availability updates as pieces are placed. More collections will appear here as they're completed.</p>
     <div style="margin-top:40px; display:flex; justify-content:center;">
       <select id="collection-select" aria-label="Filter by collection">
         <option value="all">View All Collections</option>
         <option value="facet">Faceté</option>
+        <option value="eclat">Éclat</option>
       </select>
     </div>
   </section>
@@ -180,6 +188,109 @@
             <div style="font-size:10px; letter-spacing:1px; text-transform:uppercase; color:#9A958C; margin-top:4px;">Oil on canvas, 100 × 130cm</div>
           </div>
           <a href="#inquire" style="font-size:10px; letter-spacing:1.5px; text-transform:uppercase; color:#111111; border-bottom:1px solid #111111; flex-shrink:0;">By Commission</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- COLLECTION — ÉCLAT -->
+  <section class="collection-block" data-collection="eclat" style="padding:100px 64px 140px;">
+    <div style="display:flex; justify-content:space-between; align-items:baseline; border-bottom:1px solid #EBE8E2; padding-bottom:24px; margin-bottom:16px; flex-wrap:wrap; gap:12px;">
+      <div>
+        <div style="font-size:10px; letter-spacing:2.5px; text-transform:uppercase; color:var(--accent);">Collection II</div>
+        <h3 style="font-family:'Cormorant Garamond', serif; font-weight:300; font-size:30px; margin:6px 0 0; color:#111111;">Éclat</h3>
+      </div>
+      <div style="font-size:12px; color:#9A958C; font-weight:300; max-width:360px; text-align:right;">The Éclat Collection — abstract works finished with real gold leaf, eight canvases.</div>
+    </div>
+    <p style="font-size:13px; color:#9A958C; font-weight:300; margin:0 0 48px; max-width:640px; line-height:1.8;">Éclat is French for a burst of light — the moment gold catches and throws it back. Each canvas is built in layers of oil and pigment, then broken open with hand-applied gold leaf, so the surface shifts as you move past it. No two catch the light the same way.</p>
+    <div style="display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:32px;">
+
+      <div class="piece-card">
+        <div class="piece-img eclat-img" role="img" aria-label="Placeholder — painting, Éclat I" style="aspect-ratio:4/3; background:radial-gradient(circle at 22% 28%, rgba(212,175,55,0.95) 0%, rgba(212,175,55,0) 13%), radial-gradient(circle at 72% 62%, rgba(230,194,71,0.85) 0%, rgba(230,194,71,0) 11%), radial-gradient(circle at 48% 85%, rgba(201,162,39,0.8) 0%, rgba(201,162,39,0) 9%), linear-gradient(135deg,#1C1C1E 0%,#2E2B27 100%);">
+          <div class="piece-img-inner"></div>
+        </div>
+        <div style="padding-top:14px;">
+          <div style="font-family:'Cormorant Garamond', serif; font-style:italic; font-size:14px; color:#111111;">Éclat I — Fracture</div>
+          <div style="font-size:9px; letter-spacing:1px; text-transform:uppercase; color:#9A958C; margin-top:3px;">Oil &amp; gold leaf, 80 × 110cm</div>
+          <a href="#inquire" style="font-size:9px; letter-spacing:1.5px; text-transform:uppercase; color:#111111; border-bottom:1px solid #111111; display:inline-block; margin-top:6px;">Inquire</a>
+        </div>
+      </div>
+
+      <div class="piece-card">
+        <div class="piece-img eclat-img" role="img" aria-label="Placeholder — painting, Éclat II" style="aspect-ratio:4/3; background:radial-gradient(circle at 30% 70%, rgba(230,194,71,0.9) 0%, rgba(230,194,71,0) 12%), radial-gradient(circle at 65% 25%, rgba(212,175,55,0.8) 0%, rgba(212,175,55,0) 10%), radial-gradient(circle at 85% 70%, rgba(201,162,39,0.75) 0%, rgba(201,162,39,0) 8%), linear-gradient(135deg,#4A0E1B 0%,#2A0810 100%);">
+          <div class="piece-img-inner"></div>
+        </div>
+        <div style="padding-top:14px;">
+          <div style="font-family:'Cormorant Garamond', serif; font-style:italic; font-size:14px; color:#111111;">Éclat II — Ember Vein</div>
+          <div style="font-size:9px; letter-spacing:1px; text-transform:uppercase; color:#9A958C; margin-top:3px;">Oil &amp; gold leaf, 90 × 70cm</div>
+          <a href="#inquire" style="font-size:9px; letter-spacing:1.5px; text-transform:uppercase; color:#111111; border-bottom:1px solid #111111; display:inline-block; margin-top:6px;">Inquire</a>
+        </div>
+      </div>
+
+      <div class="piece-card">
+        <div class="piece-img eclat-img" role="img" aria-label="Placeholder — painting, Éclat III" style="aspect-ratio:4/3; background:radial-gradient(circle at 18% 55%, rgba(212,175,55,0.9) 0%, rgba(212,175,55,0) 11%), radial-gradient(circle at 60% 20%, rgba(230,194,71,0.8) 0%, rgba(230,194,71,0) 9%), radial-gradient(circle at 78% 78%, rgba(201,162,39,0.75) 0%, rgba(201,162,39,0) 10%), linear-gradient(135deg,#0F1B2A 0%,#1C2E42 100%);">
+          <div class="piece-img-inner"></div>
+        </div>
+        <div style="padding-top:14px;">
+          <div style="font-family:'Cormorant Garamond', serif; font-style:italic; font-size:14px; color:#111111;">Éclat III — Night Seam</div>
+          <div style="font-size:9px; letter-spacing:1px; text-transform:uppercase; color:#9A958C; margin-top:3px;">Oil &amp; gold leaf, 100 × 80cm</div>
+          <a href="#inquire" style="font-size:9px; letter-spacing:1.5px; text-transform:uppercase; color:#111111; border-bottom:1px solid #111111; display:inline-block; margin-top:6px;">Inquire</a>
+        </div>
+      </div>
+
+      <div class="piece-card">
+        <div class="piece-img eclat-img" role="img" aria-label="Placeholder — painting, Éclat IV" style="aspect-ratio:4/3; background:radial-gradient(circle at 40% 30%, rgba(230,194,71,0.9) 0%, rgba(230,194,71,0) 13%), radial-gradient(circle at 75% 55%, rgba(212,175,55,0.8) 0%, rgba(212,175,55,0) 10%), radial-gradient(circle at 20% 80%, rgba(201,162,39,0.75) 0%, rgba(201,162,39,0) 9%), linear-gradient(135deg,#6B3A22 0%,#3E2012 100%);">
+          <div class="piece-img-inner"></div>
+        </div>
+        <div style="padding-top:14px;">
+          <div style="font-family:'Cormorant Garamond', serif; font-style:italic; font-size:14px; color:#111111;">Éclat IV — Gilded Fault</div>
+          <div style="font-size:9px; letter-spacing:1px; text-transform:uppercase; color:#9A958C; margin-top:3px;">Oil &amp; gold leaf, 85 × 115cm</div>
+          <a href="#inquire" style="font-size:9px; letter-spacing:1.5px; text-transform:uppercase; color:#111111; border-bottom:1px solid #111111; display:inline-block; margin-top:6px;">Inquire</a>
+        </div>
+      </div>
+
+      <div class="piece-card">
+        <div class="piece-img eclat-img" role="img" aria-label="Placeholder — painting, Éclat V" style="aspect-ratio:4/3; background:radial-gradient(circle at 25% 25%, rgba(212,175,55,0.9) 0%, rgba(212,175,55,0) 12%), radial-gradient(circle at 68% 68%, rgba(230,194,71,0.85) 0%, rgba(230,194,71,0) 11%), radial-gradient(circle at 85% 20%, rgba(201,162,39,0.7) 0%, rgba(201,162,39,0) 8%), linear-gradient(135deg,#12241C 0%,#1F3A2C 100%);">
+          <div class="piece-img-inner"></div>
+        </div>
+        <div style="padding-top:14px;">
+          <div style="font-family:'Cormorant Garamond', serif; font-style:italic; font-size:14px; color:#111111;">Éclat V — Afterglow</div>
+          <div style="font-size:9px; letter-spacing:1px; text-transform:uppercase; color:#9A958C; margin-top:3px;">Oil &amp; gold leaf, 95 × 75cm</div>
+          <a href="#inquire" style="font-size:9px; letter-spacing:1.5px; text-transform:uppercase; color:#111111; border-bottom:1px solid #111111; display:inline-block; margin-top:6px;">Inquire</a>
+        </div>
+      </div>
+
+      <div class="piece-card">
+        <div class="piece-img eclat-img" role="img" aria-label="Placeholder — painting, Éclat VI" style="aspect-ratio:4/3; background:radial-gradient(circle at 55% 75%, rgba(230,194,71,0.9) 0%, rgba(230,194,71,0) 12%), radial-gradient(circle at 20% 35%, rgba(212,175,55,0.8) 0%, rgba(212,175,55,0) 9%), radial-gradient(circle at 80% 20%, rgba(201,162,39,0.75) 0%, rgba(201,162,39,0) 10%), linear-gradient(135deg,#2B1826 0%,#41213A 100%);">
+          <div class="piece-img-inner"></div>
+        </div>
+        <div style="padding-top:14px;">
+          <div style="font-family:'Cormorant Garamond', serif; font-style:italic; font-size:14px; color:#111111;">Éclat VI — Split Light</div>
+          <div style="font-size:9px; letter-spacing:1px; text-transform:uppercase; color:#9A958C; margin-top:3px;">Oil &amp; gold leaf, 90 × 120cm</div>
+          <a href="#inquire" style="font-size:9px; letter-spacing:1.5px; text-transform:uppercase; color:#111111; border-bottom:1px solid #111111; display:inline-block; margin-top:6px;">Inquire</a>
+        </div>
+      </div>
+
+      <div class="piece-card">
+        <div class="piece-img eclat-img" role="img" aria-label="Placeholder — painting, Éclat VII" style="aspect-ratio:4/3; background:radial-gradient(circle at 35% 60%, rgba(212,175,55,0.9) 0%, rgba(212,175,55,0) 12%), radial-gradient(circle at 70% 30%, rgba(230,194,71,0.8) 0%, rgba(230,194,71,0) 10%), radial-gradient(circle at 15% 15%, rgba(201,162,39,0.7) 0%, rgba(201,162,39,0) 8%), linear-gradient(135deg,#1A1A1C 0%,#343438 100%);">
+          <div class="piece-img-inner"></div>
+        </div>
+        <div style="padding-top:14px;">
+          <div style="font-family:'Cormorant Garamond', serif; font-style:italic; font-size:14px; color:#111111;">Éclat VII — Molten Hour</div>
+          <div style="font-size:9px; letter-spacing:1px; text-transform:uppercase; color:#9A958C; margin-top:3px;">Oil &amp; gold leaf, 80 × 100cm</div>
+          <a href="#inquire" style="font-size:9px; letter-spacing:1.5px; text-transform:uppercase; color:#111111; border-bottom:1px solid #111111; display:inline-block; margin-top:6px;">Inquire</a>
+        </div>
+      </div>
+
+      <div class="piece-card">
+        <div class="piece-img eclat-img" role="img" aria-label="Placeholder — painting, Éclat VIII" style="aspect-ratio:4/3; background:radial-gradient(circle at 60% 40%, rgba(230,194,71,0.9) 0%, rgba(230,194,71,0) 12%), radial-gradient(circle at 25% 70%, rgba(212,175,55,0.8) 0%, rgba(212,175,55,0) 10%), radial-gradient(circle at 85% 80%, rgba(201,162,39,0.75) 0%, rgba(201,162,39,0) 9%), linear-gradient(135deg,#3A2418 0%,#241408 100%);">
+          <div class="piece-img-inner"></div>
+        </div>
+        <div style="padding-top:14px;">
+          <div style="font-family:'Cormorant Garamond', serif; font-style:italic; font-size:14px; color:#111111;">Éclat VIII — Quiet Burn</div>
+          <div style="font-size:9px; letter-spacing:1px; text-transform:uppercase; color:#9A958C; margin-top:3px;">Oil &amp; gold leaf, 100 × 70cm</div>
+          <a href="#inquire" style="font-size:9px; letter-spacing:1.5px; text-transform:uppercase; color:#111111; border-bottom:1px solid #111111; display:inline-block; margin-top:6px;">Inquire</a>
         </div>
       </div>
 
