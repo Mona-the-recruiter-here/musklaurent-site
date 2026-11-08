@@ -35,6 +35,23 @@
   input, textarea { font-family: 'Inter', sans-serif; }
   input::placeholder, textarea::placeholder { color: #9A958C; }
   .wrap { max-width:1240px; margin:0 auto; }
+  #collection-select {
+    appearance: none;
+    -webkit-appearance: none;
+    background: #FAFAF8 url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="%23111111" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>') no-repeat right 20px center;
+    border: 1px solid #111111;
+    color: #111111;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 14px 44px 14px 24px;
+    cursor: pointer;
+    min-width: 240px;
+    text-align: center;
+    text-align-last: center;
+  }
+  .collection-block.is-hidden { display: none; }
 </style>
 </head>
 <body>
@@ -79,16 +96,24 @@
     <div style="font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--accent);">The Collections</div>
     <h2 style="font-family:'Cormorant Garamond', serif; font-weight:300; font-size:clamp(32px,4vw,48px); margin:18px 0 0; color:#111111;">Three bodies of work</h2>
     <p style="font-size:14px; color:#7A766D; max-width:520px; margin:20px auto 0; line-height:1.8; font-weight:300;">Each collection is a closed set, painted over a single season. Prices on request; availability updates as pieces are placed.</p>
+    <div style="margin-top:40px; display:flex; justify-content:center;">
+      <select id="collection-select" aria-label="Filter by collection">
+        <option value="all">View All Collections</option>
+        <option value="nocturne">Nocturne</option>
+        <option value="terra">Terra</option>
+        <option value="reverie">Reverie</option>
+      </select>
+    </div>
   </section>
 
   <!-- COLLECTION I — NOCTURNE -->
-  <section style="padding:60px 64px 0;">
+  <section class="collection-block" data-collection="nocturne" style="padding:60px 64px 0;">
     <div style="display:flex; justify-content:space-between; align-items:baseline; border-bottom:1px solid #EBE8E2; padding-bottom:24px; margin-bottom:56px; flex-wrap:wrap; gap:12px;">
       <div>
         <div style="font-size:10px; letter-spacing:2.5px; text-transform:uppercase; color:var(--accent);">Collection I</div>
         <h3 style="font-family:'Cormorant Garamond', serif; font-weight:300; font-size:30px; margin:6px 0 0; color:#111111;">Nocturne</h3>
       </div>
-      <div style="font-size:12px; color:#9A958C; font-weight:300; max-width:320px; text-align:right;">Deep, still interiors — six works, painted between dusk and midnight.</div>
+      <div style="font-size:12px; color:#9A958C; font-weight:300; max-width:320px; text-align:right;">Deep, still interiors — three works, painted between dusk and midnight.</div>
     </div>
     <div style="display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:40px;">
 
@@ -135,7 +160,7 @@
   </section>
 
   <!-- COLLECTION II — TERRA -->
-  <section style="padding:100px 64px 0;">
+  <section class="collection-block" data-collection="terra" style="padding:100px 64px 0;">
     <div style="display:flex; justify-content:space-between; align-items:baseline; border-bottom:1px solid #EBE8E2; padding-bottom:24px; margin-bottom:56px; flex-wrap:wrap; gap:12px;">
       <div>
         <div style="font-size:10px; letter-spacing:2.5px; text-transform:uppercase; color:var(--accent);">Collection II</div>
@@ -188,13 +213,13 @@
   </section>
 
   <!-- COLLECTION III — REVERIE -->
-  <section style="padding:100px 64px 140px;">
+  <section class="collection-block" data-collection="reverie" style="padding:100px 64px 140px;">
     <div style="display:flex; justify-content:space-between; align-items:baseline; border-bottom:1px solid #EBE8E2; padding-bottom:24px; margin-bottom:56px; flex-wrap:wrap; gap:12px;">
       <div>
         <div style="font-size:10px; letter-spacing:2.5px; text-transform:uppercase; color:var(--accent);">Collection III</div>
         <h3 style="font-family:'Cormorant Garamond', serif; font-weight:300; font-size:30px; margin:6px 0 0; color:#111111;">Reverie</h3>
       </div>
-      <div style="font-size:12px; color:#9A958C; font-weight:300; max-width:320px; text-align:right;">Soft, unfinished-feeling studies — the smallest and gentlest collection.</div>
+      <div style="font-size:12px; color:#9A958C; font-weight:300; max-width:320px; text-align:right;">Soft, unfinished-feeling studies — the quietest collection.</div>
     </div>
     <div style="display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:40px;">
 
@@ -312,5 +337,37 @@
   </footer>
 
 </div>
+
+<script>
+  (function () {
+    var select = document.getElementById('collection-select');
+    var blocks = document.querySelectorAll('.collection-block');
+    if (!select || !blocks.length) return;
+
+    function applyFilter(value) {
+      blocks.forEach(function (block) {
+        var match = value === 'all' || block.getAttribute('data-collection') === value;
+        block.classList.toggle('is-hidden', !match);
+      });
+    }
+
+    select.addEventListener('change', function () {
+      applyFilter(select.value);
+    });
+
+    // Let nav/footer links like #collections=nocturne pre-select a collection on load.
+    var hash = window.location.hash.replace('#', '');
+    var parts = hash.split('=');
+    if (parts.length === 2 && parts[0] === 'collections') {
+      var target = parts[1];
+      var optionExists = Array.prototype.some.call(select.options, function (o) { return o.value === target; });
+      if (optionExists) {
+        select.value = target;
+        applyFilter(target);
+      }
+    }
+  })();
+</script>
+
 </body>
 </html>
