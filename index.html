@@ -35,22 +35,6 @@
   input, textarea { font-family: 'Inter', sans-serif; }
   input::placeholder, textarea::placeholder { color: #9A958C; }
   .wrap { max-width:1240px; margin:0 auto; }
-  #collection-select {
-    appearance: none;
-    -webkit-appearance: none;
-    background: #F3EBDE url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="%23111111" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>') no-repeat right 20px center;
-    border: 1px solid #111111;
-    color: #111111;
-    font-family: 'Inter', sans-serif;
-    font-size: 11px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    padding: 14px 44px 14px 24px;
-    cursor: pointer;
-    min-width: 240px;
-    text-align: center;
-    text-align-last: center;
-  }
   .collection-block.is-hidden { display: none; }
   .facet-img {
     position: relative;
@@ -78,100 +62,26 @@
   .panel-row > div { flex: 1 1 0; overflow: hidden; }
   html { scroll-behavior: smooth; }
   .collection-block { scroll-margin-top: 40px; }
-  .index-nav {
-    position: fixed;
-    right: 28px;
-    top: 50%;
-    transform: translateY(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 30px;
-    z-index: 60;
-  }
-  .index-nav::before {
-    content: "";
-    position: absolute;
-    top: -24px;
-    bottom: -24px;
-    right: 5px;
-    width: 1px;
-    background: rgba(17,17,17,0.14);
-  }
-  .index-item {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    text-decoration: none;
-  }
-  .index-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 13px;
-    letter-spacing: 1px;
-    color: #A39C8E;
-    transition: color 0.3s;
-  }
-  .index-item.is-active .index-num { color: var(--accent); }
-  .index-label {
-    position: absolute;
-    right: 24px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 9px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #111111;
-    white-space: nowrap;
-    opacity: 0;
-    transition: opacity 0.25s;
-    background: #E8DFD1;
-    padding: 2px 6px;
-    pointer-events: none;
-  }
-  .index-item:hover .index-label, .index-item.is-active .index-label { opacity: 1; }
-  @media (max-width: 560px) { .index-nav { display: none; } }
-  @media (max-width: 760px) { .index-nav { right: 10px; gap: 22px; } }
-  .arrange-btn {
-    background: none;
-    border: none;
-    padding: 0 0 3px;
-    font-family: 'Inter', sans-serif;
-    font-size: 10px;
-    letter-spacing: 1.5px;
+  .tab-link {
+    font-size: 11px;
+    letter-spacing: 2.5px;
     text-transform: uppercase;
     color: #9A958C;
-    cursor: pointer;
+    padding-bottom: 7px;
     border-bottom: 1px solid transparent;
     transition: color 0.25s, border-color 0.25s;
   }
-  .arrange-btn.is-active { color: #111111; border-bottom-color: var(--accent); }
+  .tab-link.is-active { color: #111111; border-bottom-color: var(--accent); }
+  .piece-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 36px;
+  }
 </style>
 </head>
 <body>
 
 <div style="min-height:100vh;">
-
-  <!-- COLLECTIONS INDEX (right-side wayfinding) -->
-  <nav class="index-nav" aria-label="Jump to a collection">
-    <a href="#facet" class="index-item" data-collection="facet">
-      <span class="index-label">Faceté</span>
-      <span class="index-num">I</span>
-    </a>
-    <a href="#eclat" class="index-item" data-collection="eclat">
-      <span class="index-label">Éclat</span>
-      <span class="index-num">II</span>
-    </a>
-    <a href="#lunaire" class="index-item" data-collection="lunaire">
-      <span class="index-label">Lunaire</span>
-      <span class="index-num">III</span>
-    </a>
-    <a href="#solaire" class="index-item" data-collection="solaire">
-      <span class="index-label">Solaire</span>
-      <span class="index-num">IV</span>
-    </a>
-  </nav>
 
   <!-- NAV -->
   <header style="display:flex; align-items:center; justify-content:space-between; padding:28px 64px; border-bottom:2px solid var(--accent);">
@@ -211,20 +121,12 @@
     <div style="font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--accent);">The Collections</div>
     <h2 style="font-family:'Cormorant Garamond', serif; font-weight:300; font-size:clamp(32px,4vw,48px); margin:18px 0 0; color:#111111;">Four collections, so far</h2>
     <p style="font-size:14px; color:#7A766D; max-width:520px; margin:20px auto 0; line-height:1.8; font-weight:300;">Each collection is a closed set. Prices on request; availability updates as pieces are placed. More collections will appear here as they're completed.</p>
-    <div style="margin-top:40px; display:flex; justify-content:center;">
-      <select id="collection-select" aria-label="Filter by collection">
-        <option value="facet">Faceté</option>
-        <option value="eclat">Éclat</option>
-        <option value="lunaire">Lunaire</option>
-        <option value="solaire">Solaire</option>
-      </select>
-    </div>
-    <div style="margin-top:22px; display:flex; justify-content:center; align-items:center; gap:14px;">
-      <span style="font-size:9px; letter-spacing:2px; text-transform:uppercase; color:#B8AE9C;">Arrangement</span>
-      <button type="button" class="arrange-btn is-active" data-arrange="curated">As Curated</button>
-      <span style="color:#D6CDBC; font-size:10px;">—</span>
-      <button type="button" class="arrange-btn" data-arrange="scale">By Scale</button>
-    </div>
+    <nav aria-label="Choose a collection" style="margin-top:40px; display:flex; justify-content:center; gap:40px; flex-wrap:wrap;">
+      <a href="#" class="tab-link" data-collection="facet">Faceté</a>
+      <a href="#" class="tab-link" data-collection="eclat">Éclat</a>
+      <a href="#" class="tab-link" data-collection="lunaire">Lunaire</a>
+      <a href="#" class="tab-link" data-collection="solaire">Solaire</a>
+    </nav>
   </section>
 
   <!-- COLLECTION — FACETÉ -->
@@ -237,7 +139,7 @@
       <div style="font-size:12px; color:#9A958C; font-weight:300; max-width:360px; text-align:right;">The Facet Collection — cut like stone, soft like skin. Four studies of closeness, available by private commission only.</div>
     </div>
     <p style="font-size:13px; color:#9A958C; font-weight:300; margin:0 0 48px; max-width:640px; line-height:1.8;">Faceté takes its form from the cut of a diamond — hard angles that catch a single, deliberate light. Each canvas holds a different closeness: a breath before a kiss, a hand finding skin, the quiet after. Not reproduced, not repeated. Each piece is painted once, for one collector, and is never offered again.</p>
-    <div class="piece-grid" style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:36px; max-width:760px; margin:0 auto;">
+    <div class="piece-grid">
 
       <div class="piece-card">
         <div class="piece-img facet-img" role="img" aria-label="Placeholder — painting, Faceté I" style="aspect-ratio:4/5; background:linear-gradient(150deg,#8C2335 0%,#4A0E1B 55%,#2A0810 100%);">
@@ -304,10 +206,10 @@
       <div style="font-size:12px; color:#9A958C; font-weight:300; max-width:360px; text-align:right;">The Éclat Collection — abstract works finished with real gold leaf, eight canvases.</div>
     </div>
     <p style="font-size:13px; color:#9A958C; font-weight:300; margin:0 0 48px; max-width:640px; line-height:1.8;">Éclat is French for a burst of light — the moment gold catches and throws it back. Each canvas is built in layers of oil and pigment, then broken open with hand-applied gold leaf, so the surface shifts as you move past it. No two catch the light the same way.</p>
-    <div class="piece-grid" style="display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:32px;">
+    <div class="piece-grid">
 
       <div class="piece-card">
-        <div class="piece-img eclat-img" role="img" aria-label="Placeholder — painting, Éclat I" style="aspect-ratio:4/3; background:radial-gradient(circle at 22% 28%, rgba(212,175,55,0.95) 0%, rgba(212,175,55,0) 13%), radial-gradient(circle at 72% 62%, rgba(230,194,71,0.85) 0%, rgba(230,194,71,0) 11%), radial-gradient(circle at 48% 85%, rgba(201,162,39,0.8) 0%, rgba(201,162,39,0) 9%), linear-gradient(135deg,#1C1C1E 0%,#2E2B27 100%);">
+        <div class="piece-img eclat-img" role="img" aria-label="Placeholder — painting, Éclat I" style="aspect-ratio:4/5; background:radial-gradient(circle at 22% 28%, rgba(212,175,55,0.95) 0%, rgba(212,175,55,0) 13%), radial-gradient(circle at 72% 62%, rgba(230,194,71,0.85) 0%, rgba(230,194,71,0) 11%), radial-gradient(circle at 48% 85%, rgba(201,162,39,0.8) 0%, rgba(201,162,39,0) 9%), linear-gradient(135deg,#1C1C1E 0%,#2E2B27 100%);">
           <div class="piece-img-inner"></div>
         </div>
         <div style="padding-top:14px;">
@@ -318,7 +220,7 @@
       </div>
 
       <div class="piece-card">
-        <div class="piece-img eclat-img" role="img" aria-label="Placeholder — painting, Éclat II" style="aspect-ratio:4/3; background:radial-gradient(circle at 30% 70%, rgba(230,194,71,0.9) 0%, rgba(230,194,71,0) 12%), radial-gradient(circle at 65% 25%, rgba(212,175,55,0.8) 0%, rgba(212,175,55,0) 10%), radial-gradient(circle at 85% 70%, rgba(201,162,39,0.75) 0%, rgba(201,162,39,0) 8%), linear-gradient(135deg,#4A0E1B 0%,#2A0810 100%);">
+        <div class="piece-img eclat-img" role="img" aria-label="Placeholder — painting, Éclat II" style="aspect-ratio:4/5; background:radial-gradient(circle at 30% 70%, rgba(230,194,71,0.9) 0%, rgba(230,194,71,0) 12%), radial-gradient(circle at 65% 25%, rgba(212,175,55,0.8) 0%, rgba(212,175,55,0) 10%), radial-gradient(circle at 85% 70%, rgba(201,162,39,0.75) 0%, rgba(201,162,39,0) 8%), linear-gradient(135deg,#4A0E1B 0%,#2A0810 100%);">
           <div class="piece-img-inner"></div>
         </div>
         <div style="padding-top:14px;">
@@ -329,7 +231,7 @@
       </div>
 
       <div class="piece-card">
-        <div class="piece-img eclat-img" role="img" aria-label="Placeholder — painting, Éclat III" style="aspect-ratio:4/3; background:radial-gradient(circle at 18% 55%, rgba(212,175,55,0.9) 0%, rgba(212,175,55,0) 11%), radial-gradient(circle at 60% 20%, rgba(230,194,71,0.8) 0%, rgba(230,194,71,0) 9%), radial-gradient(circle at 78% 78%, rgba(201,162,39,0.75) 0%, rgba(201,162,39,0) 10%), linear-gradient(135deg,#0F1B2A 0%,#1C2E42 100%);">
+        <div class="piece-img eclat-img" role="img" aria-label="Placeholder — painting, Éclat III" style="aspect-ratio:4/5; background:radial-gradient(circle at 18% 55%, rgba(212,175,55,0.9) 0%, rgba(212,175,55,0) 11%), radial-gradient(circle at 60% 20%, rgba(230,194,71,0.8) 0%, rgba(230,194,71,0) 9%), radial-gradient(circle at 78% 78%, rgba(201,162,39,0.75) 0%, rgba(201,162,39,0) 10%), linear-gradient(135deg,#0F1B2A 0%,#1C2E42 100%);">
           <div class="piece-img-inner"></div>
         </div>
         <div style="padding-top:14px;">
@@ -340,7 +242,7 @@
       </div>
 
       <div class="piece-card">
-        <div class="piece-img eclat-img" role="img" aria-label="Placeholder — painting, Éclat IV" style="aspect-ratio:4/3; background:radial-gradient(circle at 40% 30%, rgba(230,194,71,0.9) 0%, rgba(230,194,71,0) 13%), radial-gradient(circle at 75% 55%, rgba(212,175,55,0.8) 0%, rgba(212,175,55,0) 10%), radial-gradient(circle at 20% 80%, rgba(201,162,39,0.75) 0%, rgba(201,162,39,0) 9%), linear-gradient(135deg,#6B3A22 0%,#3E2012 100%);">
+        <div class="piece-img eclat-img" role="img" aria-label="Placeholder — painting, Éclat IV" style="aspect-ratio:4/5; background:radial-gradient(circle at 40% 30%, rgba(230,194,71,0.9) 0%, rgba(230,194,71,0) 13%), radial-gradient(circle at 75% 55%, rgba(212,175,55,0.8) 0%, rgba(212,175,55,0) 10%), radial-gradient(circle at 20% 80%, rgba(201,162,39,0.75) 0%, rgba(201,162,39,0) 9%), linear-gradient(135deg,#6B3A22 0%,#3E2012 100%);">
           <div class="piece-img-inner"></div>
         </div>
         <div style="padding-top:14px;">
@@ -351,7 +253,7 @@
       </div>
 
       <div class="piece-card">
-        <div class="piece-img eclat-img" role="img" aria-label="Placeholder — painting, Éclat V" style="aspect-ratio:4/3; background:radial-gradient(circle at 25% 25%, rgba(212,175,55,0.9) 0%, rgba(212,175,55,0) 12%), radial-gradient(circle at 68% 68%, rgba(230,194,71,0.85) 0%, rgba(230,194,71,0) 11%), radial-gradient(circle at 85% 20%, rgba(201,162,39,0.7) 0%, rgba(201,162,39,0) 8%), linear-gradient(135deg,#12241C 0%,#1F3A2C 100%);">
+        <div class="piece-img eclat-img" role="img" aria-label="Placeholder — painting, Éclat V" style="aspect-ratio:4/5; background:radial-gradient(circle at 25% 25%, rgba(212,175,55,0.9) 0%, rgba(212,175,55,0) 12%), radial-gradient(circle at 68% 68%, rgba(230,194,71,0.85) 0%, rgba(230,194,71,0) 11%), radial-gradient(circle at 85% 20%, rgba(201,162,39,0.7) 0%, rgba(201,162,39,0) 8%), linear-gradient(135deg,#12241C 0%,#1F3A2C 100%);">
           <div class="piece-img-inner"></div>
         </div>
         <div style="padding-top:14px;">
@@ -362,7 +264,7 @@
       </div>
 
       <div class="piece-card">
-        <div class="piece-img eclat-img" role="img" aria-label="Placeholder — painting, Éclat VI" style="aspect-ratio:4/3; background:radial-gradient(circle at 55% 75%, rgba(230,194,71,0.9) 0%, rgba(230,194,71,0) 12%), radial-gradient(circle at 20% 35%, rgba(212,175,55,0.8) 0%, rgba(212,175,55,0) 9%), radial-gradient(circle at 80% 20%, rgba(201,162,39,0.75) 0%, rgba(201,162,39,0) 10%), linear-gradient(135deg,#2B1826 0%,#41213A 100%);">
+        <div class="piece-img eclat-img" role="img" aria-label="Placeholder — painting, Éclat VI" style="aspect-ratio:4/5; background:radial-gradient(circle at 55% 75%, rgba(230,194,71,0.9) 0%, rgba(230,194,71,0) 12%), radial-gradient(circle at 20% 35%, rgba(212,175,55,0.8) 0%, rgba(212,175,55,0) 9%), radial-gradient(circle at 80% 20%, rgba(201,162,39,0.75) 0%, rgba(201,162,39,0) 10%), linear-gradient(135deg,#2B1826 0%,#41213A 100%);">
           <div class="piece-img-inner"></div>
         </div>
         <div style="padding-top:14px;">
@@ -373,7 +275,7 @@
       </div>
 
       <div class="piece-card">
-        <div class="piece-img eclat-img" role="img" aria-label="Placeholder — painting, Éclat VII" style="aspect-ratio:4/3; background:radial-gradient(circle at 35% 60%, rgba(212,175,55,0.9) 0%, rgba(212,175,55,0) 12%), radial-gradient(circle at 70% 30%, rgba(230,194,71,0.8) 0%, rgba(230,194,71,0) 10%), radial-gradient(circle at 15% 15%, rgba(201,162,39,0.7) 0%, rgba(201,162,39,0) 8%), linear-gradient(135deg,#1A1A1C 0%,#343438 100%);">
+        <div class="piece-img eclat-img" role="img" aria-label="Placeholder — painting, Éclat VII" style="aspect-ratio:4/5; background:radial-gradient(circle at 35% 60%, rgba(212,175,55,0.9) 0%, rgba(212,175,55,0) 12%), radial-gradient(circle at 70% 30%, rgba(230,194,71,0.8) 0%, rgba(230,194,71,0) 10%), radial-gradient(circle at 15% 15%, rgba(201,162,39,0.7) 0%, rgba(201,162,39,0) 8%), linear-gradient(135deg,#1A1A1C 0%,#343438 100%);">
           <div class="piece-img-inner"></div>
         </div>
         <div style="padding-top:14px;">
@@ -384,7 +286,7 @@
       </div>
 
       <div class="piece-card">
-        <div class="piece-img eclat-img" role="img" aria-label="Placeholder — painting, Éclat VIII" style="aspect-ratio:4/3; background:radial-gradient(circle at 60% 40%, rgba(230,194,71,0.9) 0%, rgba(230,194,71,0) 12%), radial-gradient(circle at 25% 70%, rgba(212,175,55,0.8) 0%, rgba(212,175,55,0) 10%), radial-gradient(circle at 85% 80%, rgba(201,162,39,0.75) 0%, rgba(201,162,39,0) 9%), linear-gradient(135deg,#3A2418 0%,#241408 100%);">
+        <div class="piece-img eclat-img" role="img" aria-label="Placeholder — painting, Éclat VIII" style="aspect-ratio:4/5; background:radial-gradient(circle at 60% 40%, rgba(230,194,71,0.9) 0%, rgba(230,194,71,0) 12%), radial-gradient(circle at 25% 70%, rgba(212,175,55,0.8) 0%, rgba(212,175,55,0) 10%), radial-gradient(circle at 85% 80%, rgba(201,162,39,0.75) 0%, rgba(201,162,39,0) 9%), linear-gradient(135deg,#3A2418 0%,#241408 100%);">
           <div class="piece-img-inner"></div>
         </div>
         <div style="padding-top:14px;">
@@ -408,7 +310,7 @@
     </div>
     <p style="font-size:13px; color:#8C94A8; font-weight:300; margin:0 0 48px; max-width:680px; line-height:1.85;">Lunaire moves in pairs, as the moon does — each diptych a study in opposition and completion, light held against shadow, one half incomplete without the other. Across six diptychs, the collection traces the moon's quiet phases: waxing and waning, concealment and reveal. Abstract, restrained, and deliberately unhurried.</p>
 
-    <div class="piece-grid" style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:56px 40px;">
+    <div class="piece-grid">
 
       <div class="piece-card">
         <div class="panel-row" style="aspect-ratio:3/2;">
@@ -508,7 +410,7 @@
     </div>
     <p style="font-size:13px; color:#9A8468; font-weight:300; margin:0 0 48px; max-width:680px; line-height:1.85;">Where Lunaire holds stillness, Solaire moves through time. Each triptych unfolds across three panels — dawn, noon, dusk — a single arc of light captured in three distinct moments. Six triptychs form a complete solar cycle: bolder, warmer, and more expansive than its lunar counterpart. Solaire is Lunaire's celestial opposite — the sun to its moon, the full arc to its quiet phase.</p>
 
-    <div class="piece-grid" style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:56px 40px;">
+    <div class="piece-grid">
 
       <div class="piece-card">
         <div class="panel-row" style="aspect-ratio:3/1;">
@@ -678,104 +580,37 @@
 
 <script>
   (function () {
-    var select = document.getElementById('collection-select');
+    var tabs = document.querySelectorAll('.tab-link');
     var blocks = document.querySelectorAll('.collection-block');
-    if (!select || !blocks.length) return;
+    if (!tabs.length || !blocks.length) return;
 
-    function applyFilter(value) {
+    function showCollection(id) {
       blocks.forEach(function (block) {
-        var match = block.getAttribute('data-collection') === value;
-        block.classList.toggle('is-hidden', !match);
+        block.classList.toggle('is-hidden', block.getAttribute('data-collection') !== id);
+      });
+      tabs.forEach(function (tab) {
+        tab.classList.toggle('is-active', tab.getAttribute('data-collection') === id);
       });
     }
 
-    select.addEventListener('change', function () {
-      applyFilter(select.value);
+    tabs.forEach(function (tab) {
+      tab.addEventListener('click', function (e) {
+        e.preventDefault();
+        showCollection(tab.getAttribute('data-collection'));
+        document.getElementById('collections').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
     });
 
-    // Show exactly one collection at a time; starts on whichever option is first.
-    applyFilter(select.value);
-
-    // Let nav/footer links like #collections=nocturne pre-select a collection on load.
+    // Show one collection at a time, starting on the first; a link like
+    // #collections=eclat can open straight onto a different one.
+    var initial = tabs[0].getAttribute('data-collection');
     var hash = window.location.hash.replace('#', '');
     var parts = hash.split('=');
     if (parts.length === 2 && parts[0] === 'collections') {
-      var target = parts[1];
-      var optionExists = Array.prototype.some.call(select.options, function (o) { return o.value === target; });
-      if (optionExists) {
-        select.value = target;
-        applyFilter(target);
-      }
+      var exists = Array.prototype.some.call(tabs, function (t) { return t.getAttribute('data-collection') === parts[1]; });
+      if (exists) initial = parts[1];
     }
-  })();
-</script>
-
-<script>
-  (function () {
-    // Record each piece's original position and its canvas scale (area),
-    // read straight off the printed dimensions already on the card.
-    document.querySelectorAll('.piece-grid').forEach(function (grid) {
-      Array.prototype.forEach.call(grid.children, function (card, i) {
-        card.dataset.order = i;
-        var text = card.textContent || '';
-        var m = text.match(/(\d+)\s*[×x]\s*(\d+)/);
-        card.dataset.area = m ? (parseInt(m[1], 10) * parseInt(m[2], 10)) : 0;
-      });
-    });
-
-    function arrangeGrids(mode) {
-      document.querySelectorAll('.piece-grid').forEach(function (grid) {
-        var cards = Array.prototype.slice.call(grid.children);
-        cards.sort(function (a, b) {
-          if (mode === 'scale') {
-            return (parseFloat(a.dataset.area) || 0) - (parseFloat(b.dataset.area) || 0);
-          }
-          return (parseFloat(a.dataset.order) || 0) - (parseFloat(b.dataset.order) || 0);
-        });
-        cards.forEach(function (card) { grid.appendChild(card); });
-      });
-    }
-
-    var arrangeBtns = document.querySelectorAll('.arrange-btn');
-    arrangeBtns.forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        arrangeBtns.forEach(function (b) { b.classList.remove('is-active'); });
-        btn.classList.add('is-active');
-        arrangeGrids(btn.getAttribute('data-arrange'));
-      });
-    });
-
-    // Right-side index: keep it in step with the collection filter, then scroll.
-    var select = document.getElementById('collection-select');
-    var indexItems = document.querySelectorAll('.index-item');
-    indexItems.forEach(function (item) {
-      item.addEventListener('click', function (e) {
-        e.preventDefault();
-        var id = item.getAttribute('data-collection');
-        var target = document.getElementById(id);
-        if (!target) return;
-        if (select && select.value !== id) {
-          select.value = id;
-          select.dispatchEvent(new Event('change'));
-        }
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
-    });
-
-    // Highlight whichever collection is currently in view.
-    var sections = document.querySelectorAll('.collection-block[id]');
-    if (sections.length && indexItems.length && 'IntersectionObserver' in window) {
-      var observer = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            indexItems.forEach(function (item) {
-              item.classList.toggle('is-active', item.getAttribute('data-collection') === entry.target.id);
-            });
-          }
-        });
-      }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
-      sections.forEach(function (sec) { observer.observe(sec); });
-    }
+    showCollection(initial);
   })();
 </script>
 
