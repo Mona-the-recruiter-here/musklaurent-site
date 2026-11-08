@@ -213,7 +213,6 @@
     <p style="font-size:14px; color:#7A766D; max-width:520px; margin:20px auto 0; line-height:1.8; font-weight:300;">Each collection is a closed set. Prices on request; availability updates as pieces are placed. More collections will appear here as they're completed.</p>
     <div style="margin-top:40px; display:flex; justify-content:center;">
       <select id="collection-select" aria-label="Filter by collection">
-        <option value="all">View All Collections</option>
         <option value="facet">Faceté</option>
         <option value="eclat">Éclat</option>
         <option value="lunaire">Lunaire</option>
@@ -232,13 +231,13 @@
   <section id="facet" class="collection-block" data-collection="facet" style="padding:100px 64px 140px; background:#F7F3EE;">
     <div style="display:flex; justify-content:space-between; align-items:baseline; border-bottom:1px solid #E3DED3; padding-bottom:24px; margin-bottom:16px; flex-wrap:wrap; gap:12px;">
       <div>
-        <div style="font-size:10px; letter-spacing:2.5px; text-transform:uppercase; color:var(--accent);">Collection I — Bespoke</div>
+        <div style="font-size:10px; letter-spacing:2.5px; text-transform:uppercase; color:var(--accent);">Collection I</div>
         <h3 style="font-family:'Cormorant Garamond', serif; font-weight:300; font-size:30px; margin:6px 0 0; color:#111111;">Faceté</h3>
       </div>
       <div style="font-size:12px; color:#9A958C; font-weight:300; max-width:360px; text-align:right;">The Facet Collection — cut like stone, soft like skin. Four studies of closeness, available by private commission only.</div>
     </div>
     <p style="font-size:13px; color:#9A958C; font-weight:300; margin:0 0 48px; max-width:640px; line-height:1.8;">Faceté takes its form from the cut of a diamond — hard angles that catch a single, deliberate light. Each canvas holds a different closeness: a breath before a kiss, a hand finding skin, the quiet after. Not reproduced, not repeated. Each piece is painted once, for one collector, and is never offered again.</p>
-    <div class="piece-grid" style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:48px;">
+    <div class="piece-grid" style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:36px; max-width:760px; margin:0 auto;">
 
       <div class="piece-card">
         <div class="piece-img facet-img" role="img" aria-label="Placeholder — painting, Faceté I" style="aspect-ratio:4/5; background:linear-gradient(150deg,#8C2335 0%,#4A0E1B 55%,#2A0810 100%);">
@@ -685,7 +684,7 @@
 
     function applyFilter(value) {
       blocks.forEach(function (block) {
-        var match = value === 'all' || block.getAttribute('data-collection') === value;
+        var match = block.getAttribute('data-collection') === value;
         block.classList.toggle('is-hidden', !match);
       });
     }
@@ -693,6 +692,9 @@
     select.addEventListener('change', function () {
       applyFilter(select.value);
     });
+
+    // Show exactly one collection at a time; starts on whichever option is first.
+    applyFilter(select.value);
 
     // Let nav/footer links like #collections=nocturne pre-select a collection on load.
     var hash = window.location.hash.replace('#', '');
@@ -752,7 +754,7 @@
         var id = item.getAttribute('data-collection');
         var target = document.getElementById(id);
         if (!target) return;
-        if (select && select.value !== 'all' && select.value !== id) {
+        if (select && select.value !== id) {
           select.value = id;
           select.dispatchEvent(new Event('change'));
         }
