@@ -52,6 +52,21 @@
     text-align-last: center;
   }
   .collection-block.is-hidden { display: none; }
+  .facet-img {
+    position: relative;
+    overflow: hidden;
+    clip-path: polygon(0% 8%, 50% 0%, 100% 10%, 100% 92%, 48% 100%, 0% 90%);
+  }
+  .facet-img::before, .facet-img::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+  }
+  .facet-img::after {
+    background:
+      linear-gradient(115deg, rgba(255,255,255,0.22) 0%, transparent 18%, transparent 46%, rgba(255,255,255,0.14) 52%, transparent 70%, rgba(0,0,0,0.12) 100%);
+    mix-blend-mode: overlay;
+  }
 </style>
 </head>
 <body>
@@ -94,171 +109,77 @@
   <!-- COLLECTIONS INTRO -->
   <section id="collections" style="padding:140px 64px 40px; text-align:center;">
     <div style="font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--accent);">The Collections</div>
-    <h2 style="font-family:'Cormorant Garamond', serif; font-weight:300; font-size:clamp(32px,4vw,48px); margin:18px 0 0; color:#111111;">Three bodies of work</h2>
-    <p style="font-size:14px; color:#7A766D; max-width:520px; margin:20px auto 0; line-height:1.8; font-weight:300;">Each collection is a closed set, painted over a single season. Prices on request; availability updates as pieces are placed.</p>
+    <h2 style="font-family:'Cormorant Garamond', serif; font-weight:300; font-size:clamp(32px,4vw,48px); margin:18px 0 0; color:#111111;">One collection, to begin</h2>
+    <p style="font-size:14px; color:#7A766D; max-width:520px; margin:20px auto 0; line-height:1.8; font-weight:300;">Each collection is a closed set. Prices on request; availability updates as pieces are placed. More collections will appear here as they're completed.</p>
     <div style="margin-top:40px; display:flex; justify-content:center;">
       <select id="collection-select" aria-label="Filter by collection">
         <option value="all">View All Collections</option>
-        <option value="nocturne">Nocturne</option>
-        <option value="terra">Terra</option>
-        <option value="reverie">Reverie</option>
+        <option value="facet">Faceté</option>
       </select>
     </div>
   </section>
 
-  <!-- COLLECTION I — NOCTURNE -->
-  <section class="collection-block" data-collection="nocturne" style="padding:60px 64px 0;">
-    <div style="display:flex; justify-content:space-between; align-items:baseline; border-bottom:1px solid #EBE8E2; padding-bottom:24px; margin-bottom:56px; flex-wrap:wrap; gap:12px;">
+  <!-- COLLECTION — FACETÉ -->
+  <section class="collection-block" data-collection="facet" style="padding:100px 64px 140px; background:#F7F3EE;">
+    <div style="display:flex; justify-content:space-between; align-items:baseline; border-bottom:1px solid #E3DED3; padding-bottom:24px; margin-bottom:16px; flex-wrap:wrap; gap:12px;">
       <div>
-        <div style="font-size:10px; letter-spacing:2.5px; text-transform:uppercase; color:var(--accent);">Collection I</div>
-        <h3 style="font-family:'Cormorant Garamond', serif; font-weight:300; font-size:30px; margin:6px 0 0; color:#111111;">Nocturne</h3>
+        <div style="font-size:10px; letter-spacing:2.5px; text-transform:uppercase; color:var(--accent);">Collection I — Bespoke</div>
+        <h3 style="font-family:'Cormorant Garamond', serif; font-weight:300; font-size:30px; margin:6px 0 0; color:#111111;">Faceté</h3>
       </div>
-      <div style="font-size:12px; color:#9A958C; font-weight:300; max-width:320px; text-align:right;">Deep, still interiors — three works, painted between dusk and midnight.</div>
+      <div style="font-size:12px; color:#9A958C; font-weight:300; max-width:360px; text-align:right;">The Facet Collection — cut like stone, soft like skin. Four studies of closeness, available by private commission only.</div>
     </div>
-    <div style="display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:40px;">
+    <p style="font-size:13px; color:#9A958C; font-weight:300; margin:0 0 48px; max-width:640px; line-height:1.8;">Faceté takes its form from the cut of a diamond — hard angles that catch a single, deliberate light. Each canvas holds a different closeness: a breath before a kiss, a hand finding skin, the quiet after. Not reproduced, not repeated. Each piece is painted once, for one collector, and is never offered again.</p>
+    <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:48px;">
 
       <div class="piece-card">
-        <div class="piece-img" role="img" aria-label="Placeholder — painting, Nocturne I" style="aspect-ratio:4/5; background:linear-gradient(160deg,#2B2A28 0%,#18181A 100%);">
+        <div class="piece-img facet-img" role="img" aria-label="Placeholder — painting, Faceté I" style="aspect-ratio:4/5; background:linear-gradient(150deg,#8C2335 0%,#4A0E1B 55%,#2A0810 100%);">
           <div class="piece-img-inner"></div>
         </div>
         <div style="padding-top:16px; display:flex; justify-content:space-between; align-items:baseline; gap:12px;">
           <div>
-            <div style="font-family:'Cormorant Garamond', serif; font-style:italic; font-size:15px; color:#111111;">Hollow Room</div>
-            <div style="font-size:10px; letter-spacing:1px; text-transform:uppercase; color:#9A958C; margin-top:4px;">Oil on canvas, 80 × 100cm</div>
+            <div style="font-family:'Cormorant Garamond', serif; font-style:italic; font-size:15px; color:#111111;">Facet I — Closer</div>
+            <div style="font-size:10px; letter-spacing:1px; text-transform:uppercase; color:#9A958C; margin-top:4px;">Oil on canvas, 120 × 150cm</div>
           </div>
-          <a href="#inquire" style="font-size:10px; letter-spacing:1.5px; text-transform:uppercase; color:#111111; border-bottom:1px solid #111111; flex-shrink:0;">Inquire</a>
+          <a href="#inquire" style="font-size:10px; letter-spacing:1.5px; text-transform:uppercase; color:#111111; border-bottom:1px solid #111111; flex-shrink:0;">By Commission</a>
         </div>
       </div>
 
       <div class="piece-card">
-        <div class="piece-img" role="img" aria-label="Placeholder — painting, Nocturne II" style="aspect-ratio:4/5; background:linear-gradient(160deg,#30332F 0%,#111214 100%);">
+        <div class="piece-img facet-img" role="img" aria-label="Placeholder — painting, Faceté II" style="aspect-ratio:4/5; background:linear-gradient(150deg,#2E2B27 0%,#15130F 55%,#0A0908 100%);">
           <div class="piece-img-inner"></div>
         </div>
         <div style="padding-top:16px; display:flex; justify-content:space-between; align-items:baseline; gap:12px;">
           <div>
-            <div style="font-family:'Cormorant Garamond', serif; font-style:italic; font-size:15px; color:#111111;">Blue Hour</div>
-            <div style="font-size:10px; letter-spacing:1px; text-transform:uppercase; color:#9A958C; margin-top:4px;">Oil on canvas, 100 × 120cm</div>
+            <div style="font-family:'Cormorant Garamond', serif; font-style:italic; font-size:15px; color:#111111;">Facet II — Undertone</div>
+            <div style="font-size:10px; letter-spacing:1px; text-transform:uppercase; color:#9A958C; margin-top:4px;">Oil on canvas, 120 × 150cm</div>
           </div>
-          <a href="#inquire" style="font-size:10px; letter-spacing:1.5px; text-transform:uppercase; color:#111111; border-bottom:1px solid #111111; flex-shrink:0;">Sold</a>
+          <a href="#inquire" style="font-size:10px; letter-spacing:1.5px; text-transform:uppercase; color:#111111; border-bottom:1px solid #111111; flex-shrink:0;">By Commission</a>
         </div>
       </div>
 
       <div class="piece-card">
-        <div class="piece-img" role="img" aria-label="Placeholder — painting, Nocturne III" style="aspect-ratio:4/5; background:linear-gradient(160deg,#242321 0%,#0E0E10 100%);">
+        <div class="piece-img facet-img" role="img" aria-label="Placeholder — painting, Faceté III" style="aspect-ratio:4/5; background:linear-gradient(150deg,#B08858 0%,#7C5331 55%,#4A2E1A 100%);">
           <div class="piece-img-inner"></div>
         </div>
         <div style="padding-top:16px; display:flex; justify-content:space-between; align-items:baseline; gap:12px;">
           <div>
-            <div style="font-family:'Cormorant Garamond', serif; font-style:italic; font-size:15px; color:#111111;">Still Water</div>
-            <div style="font-size:10px; letter-spacing:1px; text-transform:uppercase; color:#9A958C; margin-top:4px;">Oil on canvas, 60 × 80cm</div>
+            <div style="font-family:'Cormorant Garamond', serif; font-style:italic; font-size:15px; color:#111111;">Facet III — Held</div>
+            <div style="font-size:10px; letter-spacing:1px; text-transform:uppercase; color:#9A958C; margin-top:4px;">Oil on canvas, 120 × 150cm</div>
           </div>
-          <a href="#inquire" style="font-size:10px; letter-spacing:1.5px; text-transform:uppercase; color:#111111; border-bottom:1px solid #111111; flex-shrink:0;">Inquire</a>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- COLLECTION II — TERRA -->
-  <section class="collection-block" data-collection="terra" style="padding:100px 64px 0;">
-    <div style="display:flex; justify-content:space-between; align-items:baseline; border-bottom:1px solid #EBE8E2; padding-bottom:24px; margin-bottom:56px; flex-wrap:wrap; gap:12px;">
-      <div>
-        <div style="font-size:10px; letter-spacing:2.5px; text-transform:uppercase; color:var(--accent);">Collection II</div>
-        <h3 style="font-family:'Cormorant Garamond', serif; font-weight:300; font-size:30px; margin:6px 0 0; color:#111111;">Terra</h3>
-      </div>
-      <div style="font-size:12px; color:#9A958C; font-weight:300; max-width:320px; text-align:right;">Warm, mineral tones drawn from clay, sand and worn stone.</div>
-    </div>
-    <div style="display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:40px;">
-
-      <div class="piece-card">
-        <div class="piece-img" role="img" aria-label="Placeholder — painting, Terra I" style="aspect-ratio:4/5; background:linear-gradient(160deg,#C9B89A 0%,#9C7E5B 100%);">
-          <div class="piece-img-inner"></div>
-        </div>
-        <div style="padding-top:16px; display:flex; justify-content:space-between; align-items:baseline; gap:12px;">
-          <div>
-            <div style="font-family:'Cormorant Garamond', serif; font-style:italic; font-size:15px; color:#111111;">Ochre Field</div>
-            <div style="font-size:10px; letter-spacing:1px; text-transform:uppercase; color:#9A958C; margin-top:4px;">Oil on canvas, 90 × 110cm</div>
-          </div>
-          <a href="#inquire" style="font-size:10px; letter-spacing:1.5px; text-transform:uppercase; color:#111111; border-bottom:1px solid #111111; flex-shrink:0;">Inquire</a>
+          <a href="#inquire" style="font-size:10px; letter-spacing:1.5px; text-transform:uppercase; color:#111111; border-bottom:1px solid #111111; flex-shrink:0;">By Commission</a>
         </div>
       </div>
 
       <div class="piece-card">
-        <div class="piece-img" role="img" aria-label="Placeholder — painting, Terra II" style="aspect-ratio:4/5; background:linear-gradient(160deg,#B99E7E 0%,#7C5C3E 100%);">
+        <div class="piece-img facet-img" role="img" aria-label="Placeholder — painting, Faceté IV" style="aspect-ratio:4/5; background:linear-gradient(150deg,#E8D9CC 0%,#C9AE98 55%,#A9876C 100%);">
           <div class="piece-img-inner"></div>
         </div>
         <div style="padding-top:16px; display:flex; justify-content:space-between; align-items:baseline; gap:12px;">
           <div>
-            <div style="font-family:'Cormorant Garamond', serif; font-style:italic; font-size:15px; color:#111111;">Worn Stone</div>
-            <div style="font-size:10px; letter-spacing:1px; text-transform:uppercase; color:#9A958C; margin-top:4px;">Oil on canvas, 70 × 90cm</div>
+            <div style="font-family:'Cormorant Garamond', serif; font-style:italic; font-size:15px; color:#111111;">Facet IV — Unguarded</div>
+            <div style="font-size:10px; letter-spacing:1px; text-transform:uppercase; color:#9A958C; margin-top:4px;">Oil on canvas, 100 × 130cm</div>
           </div>
-          <a href="#inquire" style="font-size:10px; letter-spacing:1.5px; text-transform:uppercase; color:#111111; border-bottom:1px solid #111111; flex-shrink:0;">Inquire</a>
-        </div>
-      </div>
-
-      <div class="piece-card">
-        <div class="piece-img" role="img" aria-label="Placeholder — painting, Terra III" style="aspect-ratio:4/5; background:linear-gradient(160deg,#D6C3A3 0%,#AD8860 100%);">
-          <div class="piece-img-inner"></div>
-        </div>
-        <div style="padding-top:16px; display:flex; justify-content:space-between; align-items:baseline; gap:12px;">
-          <div>
-            <div style="font-family:'Cormorant Garamond', serif; font-style:italic; font-size:15px; color:#111111;">Dry Season</div>
-            <div style="font-size:10px; letter-spacing:1px; text-transform:uppercase; color:#9A958C; margin-top:4px;">Oil on canvas, 100 × 100cm</div>
-          </div>
-          <a href="#inquire" style="font-size:10px; letter-spacing:1.5px; text-transform:uppercase; color:#111111; border-bottom:1px solid #111111; flex-shrink:0;">Inquire</a>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- COLLECTION III — REVERIE -->
-  <section class="collection-block" data-collection="reverie" style="padding:100px 64px 140px;">
-    <div style="display:flex; justify-content:space-between; align-items:baseline; border-bottom:1px solid #EBE8E2; padding-bottom:24px; margin-bottom:56px; flex-wrap:wrap; gap:12px;">
-      <div>
-        <div style="font-size:10px; letter-spacing:2.5px; text-transform:uppercase; color:var(--accent);">Collection III</div>
-        <h3 style="font-family:'Cormorant Garamond', serif; font-weight:300; font-size:30px; margin:6px 0 0; color:#111111;">Reverie</h3>
-      </div>
-      <div style="font-size:12px; color:#9A958C; font-weight:300; max-width:320px; text-align:right;">Soft, unfinished-feeling studies — the quietest collection.</div>
-    </div>
-    <div style="display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:40px;">
-
-      <div class="piece-card">
-        <div class="piece-img" role="img" aria-label="Placeholder — painting, Reverie I" style="aspect-ratio:4/5; background:linear-gradient(160deg,#EDE6DD 0%,#D7C9BB 100%);">
-          <div class="piece-img-inner"></div>
-        </div>
-        <div style="padding-top:16px; display:flex; justify-content:space-between; align-items:baseline; gap:12px;">
-          <div>
-            <div style="font-family:'Cormorant Garamond', serif; font-style:italic; font-size:15px; color:#111111;">Soft Morning</div>
-            <div style="font-size:10px; letter-spacing:1px; text-transform:uppercase; color:#9A958C; margin-top:4px;">Oil on canvas, 50 × 60cm</div>
-          </div>
-          <a href="#inquire" style="font-size:10px; letter-spacing:1.5px; text-transform:uppercase; color:#111111; border-bottom:1px solid #111111; flex-shrink:0;">Inquire</a>
-        </div>
-      </div>
-
-      <div class="piece-card">
-        <div class="piece-img" role="img" aria-label="Placeholder — painting, Reverie II" style="aspect-ratio:4/5; background:linear-gradient(160deg,#E3D9CE 0%,#C2AF9C 100%);">
-          <div class="piece-img-inner"></div>
-        </div>
-        <div style="padding-top:16px; display:flex; justify-content:space-between; align-items:baseline; gap:12px;">
-          <div>
-            <div style="font-family:'Cormorant Garamond', serif; font-style:italic; font-size:15px; color:#111111;">Half-Remembered</div>
-            <div style="font-size:10px; letter-spacing:1px; text-transform:uppercase; color:#9A958C; margin-top:4px;">Oil on canvas, 40 × 50cm</div>
-          </div>
-          <a href="#inquire" style="font-size:10px; letter-spacing:1.5px; text-transform:uppercase; color:#111111; border-bottom:1px solid #111111; flex-shrink:0;">Inquire</a>
-        </div>
-      </div>
-
-      <div class="piece-card">
-        <div class="piece-img" role="img" aria-label="Placeholder — painting, Reverie III" style="aspect-ratio:4/5; background:linear-gradient(160deg,#F1EAE1 0%,#DCCDBD 100%);">
-          <div class="piece-img-inner"></div>
-        </div>
-        <div style="padding-top:16px; display:flex; justify-content:space-between; align-items:baseline; gap:12px;">
-          <div>
-            <div style="font-family:'Cormorant Garamond', serif; font-style:italic; font-size:15px; color:#111111;">Quiet Hour</div>
-            <div style="font-size:10px; letter-spacing:1px; text-transform:uppercase; color:#9A958C; margin-top:4px;">Oil on canvas, 60 × 70cm</div>
-          </div>
-          <a href="#inquire" style="font-size:10px; letter-spacing:1.5px; text-transform:uppercase; color:#111111; border-bottom:1px solid #111111; flex-shrink:0;">Inquire</a>
+          <a href="#inquire" style="font-size:10px; letter-spacing:1.5px; text-transform:uppercase; color:#111111; border-bottom:1px solid #111111; flex-shrink:0;">By Commission</a>
         </div>
       </div>
 
