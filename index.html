@@ -74,6 +74,8 @@
     inset: 0;
     mix-blend-mode: screen;
   }
+  .panel-row { display: flex; gap: 3px; overflow: hidden; }
+  .panel-row > div { flex: 1 1 0; overflow: hidden; }
 </style>
 </head>
 <body>
@@ -116,13 +118,15 @@
   <!-- COLLECTIONS INTRO -->
   <section id="collections" style="padding:140px 64px 40px; text-align:center;">
     <div style="font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--accent);">The Collections</div>
-    <h2 style="font-family:'Cormorant Garamond', serif; font-weight:300; font-size:clamp(32px,4vw,48px); margin:18px 0 0; color:#111111;">Two collections, so far</h2>
+    <h2 style="font-family:'Cormorant Garamond', serif; font-weight:300; font-size:clamp(32px,4vw,48px); margin:18px 0 0; color:#111111;">Four collections, so far</h2>
     <p style="font-size:14px; color:#7A766D; max-width:520px; margin:20px auto 0; line-height:1.8; font-weight:300;">Each collection is a closed set. Prices on request; availability updates as pieces are placed. More collections will appear here as they're completed.</p>
     <div style="margin-top:40px; display:flex; justify-content:center;">
       <select id="collection-select" aria-label="Filter by collection">
         <option value="all">View All Collections</option>
         <option value="facet">Faceté</option>
         <option value="eclat">Éclat</option>
+        <option value="lunaire">Lunaire</option>
+        <option value="solaire">Solaire</option>
       </select>
     </div>
   </section>
@@ -291,6 +295,212 @@
           <div style="font-family:'Cormorant Garamond', serif; font-style:italic; font-size:14px; color:#111111;">Éclat VIII — Quiet Burn</div>
           <div style="font-size:9px; letter-spacing:1px; text-transform:uppercase; color:#9A958C; margin-top:3px;">Oil &amp; gold leaf, 100 × 70cm</div>
           <a href="#inquire" style="font-size:9px; letter-spacing:1.5px; text-transform:uppercase; color:#111111; border-bottom:1px solid #111111; display:inline-block; margin-top:6px;">Inquire</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- COLLECTION — LUNAIRE -->
+  <section class="collection-block" data-collection="lunaire" style="padding:100px 64px 140px; background:#0E111A;">
+    <div style="display:flex; justify-content:space-between; align-items:baseline; border-bottom:1px solid #262B38; padding-bottom:24px; margin-bottom:16px; flex-wrap:wrap; gap:12px;">
+      <div>
+        <div style="font-size:10px; letter-spacing:2.5px; text-transform:uppercase; color:#B8C4D6;">Collection III</div>
+        <h3 style="font-family:'Cormorant Garamond', serif; font-weight:300; font-size:30px; margin:6px 0 0; color:#F3F1EC;">Lunaire</h3>
+      </div>
+      <div style="font-size:12px; color:#8C94A8; font-weight:300; max-width:360px; text-align:right;">Six diptychs. Twelve paintings. Luxury rendered in half-light.</div>
+    </div>
+    <p style="font-size:13px; color:#8C94A8; font-weight:300; margin:0 0 48px; max-width:680px; line-height:1.85;">Lunaire moves in pairs, as the moon does — each diptych a study in opposition and completion, light held against shadow, one half incomplete without the other. Across six diptychs, the collection traces the moon's quiet phases: waxing and waning, concealment and reveal. Abstract, restrained, and deliberately unhurried.</p>
+
+    <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:56px 40px;">
+
+      <div class="piece-card">
+        <div class="panel-row" style="aspect-ratio:3/2;">
+          <div class="piece-img-inner" style="background:radial-gradient(circle at 30% 50%, rgba(210,218,232,0.5) 0%, rgba(210,218,232,0) 55%), linear-gradient(145deg,#1B2030 0%,#0A0C12 100%);"></div>
+          <div class="piece-img-inner" style="background:radial-gradient(circle at 70% 50%, rgba(210,218,232,0.18) 0%, rgba(210,218,232,0) 50%), linear-gradient(145deg,#12141C 0%,#05060A 100%);"></div>
+        </div>
+        <div style="padding-top:14px; display:flex; justify-content:space-between; align-items:baseline; gap:12px;">
+          <div>
+            <div style="font-family:'Cormorant Garamond', serif; font-style:italic; font-size:14px; color:#F3F1EC;">Diptych I — Waxing / Waning</div>
+            <div style="font-size:9px; letter-spacing:1px; text-transform:uppercase; color:#747C90; margin-top:3px;">Oil on canvas, two panels, 60 × 80cm each</div>
+          </div>
+          <a href="#inquire" style="font-size:9px; letter-spacing:1.5px; text-transform:uppercase; color:#F3F1EC; border-bottom:1px solid #F3F1EC; flex-shrink:0;">Inquire</a>
+        </div>
+      </div>
+
+      <div class="piece-card">
+        <div class="panel-row" style="aspect-ratio:3/2;">
+          <div class="piece-img-inner" style="background:linear-gradient(145deg,#0A0C12 0%,#05060A 100%);"></div>
+          <div class="piece-img-inner" style="background:radial-gradient(circle at 50% 50%, rgba(230,234,240,0.7) 0%, rgba(230,234,240,0.1) 42%, rgba(230,234,240,0) 60%), linear-gradient(145deg,#1B2030 0%,#0A0C12 100%);"></div>
+        </div>
+        <div style="padding-top:14px; display:flex; justify-content:space-between; align-items:baseline; gap:12px;">
+          <div>
+            <div style="font-family:'Cormorant Garamond', serif; font-style:italic; font-size:14px; color:#F3F1EC;">Diptych II — New / Full</div>
+            <div style="font-size:9px; letter-spacing:1px; text-transform:uppercase; color:#747C90; margin-top:3px;">Oil on canvas, two panels, 60 × 80cm each</div>
+          </div>
+          <a href="#inquire" style="font-size:9px; letter-spacing:1.5px; text-transform:uppercase; color:#F3F1EC; border-bottom:1px solid #F3F1EC; flex-shrink:0;">Inquire</a>
+        </div>
+      </div>
+
+      <div class="piece-card">
+        <div class="panel-row" style="aspect-ratio:3/2;">
+          <div class="piece-img-inner" style="background:linear-gradient(145deg,#1C1830 0%,#0A0814 100%);"></div>
+          <div class="piece-img-inner" style="background:radial-gradient(circle at 50% 50%, rgba(214,206,232,0.55) 0%, rgba(214,206,232,0) 48%), linear-gradient(145deg,#231E3A 0%,#0F0C1C 100%);"></div>
+        </div>
+        <div style="padding-top:14px; display:flex; justify-content:space-between; align-items:baseline; gap:12px;">
+          <div>
+            <div style="font-family:'Cormorant Garamond', serif; font-style:italic; font-size:14px; color:#F3F1EC;">Diptych III — Concealment / Reveal</div>
+            <div style="font-size:9px; letter-spacing:1px; text-transform:uppercase; color:#747C90; margin-top:3px;">Oil on canvas, two panels, 60 × 80cm each</div>
+          </div>
+          <a href="#inquire" style="font-size:9px; letter-spacing:1.5px; text-transform:uppercase; color:#F3F1EC; border-bottom:1px solid #F3F1EC; flex-shrink:0;">Inquire</a>
+        </div>
+      </div>
+
+      <div class="piece-card">
+        <div class="panel-row" style="aspect-ratio:3/2;">
+          <div class="piece-img-inner" style="background:radial-gradient(circle at 20% 50%, rgba(210,218,232,0.4) 0%, rgba(210,218,232,0) 30%), linear-gradient(145deg,#161A26 0%,#0A0C12 100%);"></div>
+          <div class="piece-img-inner" style="background:radial-gradient(circle at 80% 50%, rgba(210,218,232,0.55) 0%, rgba(210,218,232,0) 62%), linear-gradient(145deg,#1B2030 0%,#0A0C12 100%);"></div>
+        </div>
+        <div style="padding-top:14px; display:flex; justify-content:space-between; align-items:baseline; gap:12px;">
+          <div>
+            <div style="font-family:'Cormorant Garamond', serif; font-style:italic; font-size:14px; color:#F3F1EC;">Diptych IV — Crescent / Gibbous</div>
+            <div style="font-size:9px; letter-spacing:1px; text-transform:uppercase; color:#747C90; margin-top:3px;">Oil on canvas, two panels, 60 × 80cm each</div>
+          </div>
+          <a href="#inquire" style="font-size:9px; letter-spacing:1.5px; text-transform:uppercase; color:#F3F1EC; border-bottom:1px solid #F3F1EC; flex-shrink:0;">Inquire</a>
+        </div>
+      </div>
+
+      <div class="piece-card">
+        <div class="panel-row" style="aspect-ratio:3/2;">
+          <div class="piece-img-inner" style="background:radial-gradient(circle at 50% 50%, rgba(140,60,50,0.35) 0%, rgba(140,60,50,0) 45%), linear-gradient(145deg,#1A0F0F 0%,#0A0608 100%);"></div>
+          <div class="piece-img-inner" style="background:radial-gradient(circle at 50% 50%, rgba(230,234,240,0.5) 0%, rgba(230,234,240,0.08) 40%, rgba(230,234,240,0) 58%), linear-gradient(145deg,#1B2030 0%,#0A0C12 100%);"></div>
+        </div>
+        <div style="padding-top:14px; display:flex; justify-content:space-between; align-items:baseline; gap:12px;">
+          <div>
+            <div style="font-family:'Cormorant Garamond', serif; font-style:italic; font-size:14px; color:#F3F1EC;">Diptych V — Eclipse / Halo</div>
+            <div style="font-size:9px; letter-spacing:1px; text-transform:uppercase; color:#747C90; margin-top:3px;">Oil on canvas, two panels, 60 × 80cm each</div>
+          </div>
+          <a href="#inquire" style="font-size:9px; letter-spacing:1.5px; text-transform:uppercase; color:#F3F1EC; border-bottom:1px solid #F3F1EC; flex-shrink:0;">Inquire</a>
+        </div>
+      </div>
+
+      <div class="piece-card">
+        <div class="panel-row" style="aspect-ratio:3/2;">
+          <div class="piece-img-inner" style="background:linear-gradient(145deg,#1B2030 0%,#0A0C12 100%);"></div>
+          <div class="piece-img-inner" style="background:radial-gradient(circle at 60% 40%, rgba(232,206,186,0.3) 0%, rgba(232,206,186,0) 35%), linear-gradient(145deg,#1C1E2A 0%,#0A0C12 100%);"></div>
+        </div>
+        <div style="padding-top:14px; display:flex; justify-content:space-between; align-items:baseline; gap:12px;">
+          <div>
+            <div style="font-family:'Cormorant Garamond', serif; font-style:italic; font-size:14px; color:#F3F1EC;">Diptych VI — Dusk / Dawn</div>
+            <div style="font-size:9px; letter-spacing:1px; text-transform:uppercase; color:#747C90; margin-top:3px;">Oil on canvas, two panels, 60 × 80cm each</div>
+          </div>
+          <a href="#inquire" style="font-size:9px; letter-spacing:1.5px; text-transform:uppercase; color:#F3F1EC; border-bottom:1px solid #F3F1EC; flex-shrink:0;">Inquire</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- COLLECTION — SOLAIRE -->
+  <section class="collection-block" data-collection="solaire" style="padding:100px 64px 140px; background:#FBF4EC;">
+    <div style="display:flex; justify-content:space-between; align-items:baseline; border-bottom:1px solid #EADFC9; padding-bottom:24px; margin-bottom:16px; flex-wrap:wrap; gap:12px;">
+      <div>
+        <div style="font-size:10px; letter-spacing:2.5px; text-transform:uppercase; color:#B8631F;">Collection IV</div>
+        <h3 style="font-family:'Cormorant Garamond', serif; font-weight:300; font-size:30px; margin:6px 0 0; color:#111111;">Solaire</h3>
+      </div>
+      <div style="font-size:12px; color:#9A8468; font-weight:300; max-width:360px; text-align:right;">Six triptychs. Eighteen paintings. The full arc of a single day's light.</div>
+    </div>
+    <p style="font-size:13px; color:#9A8468; font-weight:300; margin:0 0 48px; max-width:680px; line-height:1.85;">Where Lunaire holds stillness, Solaire moves through time. Each triptych unfolds across three panels — dawn, noon, dusk — a single arc of light captured in three distinct moments. Six triptychs form a complete solar cycle: bolder, warmer, and more expansive than its lunar counterpart. Solaire is Lunaire's celestial opposite — the sun to its moon, the full arc to its quiet phase.</p>
+
+    <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:56px 40px;">
+
+      <div class="piece-card">
+        <div class="panel-row" style="aspect-ratio:3/1;">
+          <div class="piece-img-inner" style="background:linear-gradient(135deg,#F6D9C5 0%,#E8A87C 100%);"></div>
+          <div class="piece-img-inner" style="background:linear-gradient(135deg,#FFD36E 0%,#FFB13C 100%);"></div>
+          <div class="piece-img-inner" style="background:linear-gradient(135deg,#C9502B 0%,#5C1E12 100%);"></div>
+        </div>
+        <div style="padding-top:14px; display:flex; justify-content:space-between; align-items:baseline; gap:12px;">
+          <div>
+            <div style="font-family:'Cormorant Garamond', serif; font-style:italic; font-size:14px; color:#111111;">Triptych I — Aurora</div>
+            <div style="font-size:9px; letter-spacing:1px; text-transform:uppercase; color:#9A8468; margin-top:3px;">Oil on canvas, three panels, 60 × 90cm each — dawn, noon, dusk</div>
+          </div>
+          <a href="#inquire" style="font-size:9px; letter-spacing:1.5px; text-transform:uppercase; color:#111111; border-bottom:1px solid #111111; flex-shrink:0;">Inquire</a>
+        </div>
+      </div>
+
+      <div class="piece-card">
+        <div class="panel-row" style="aspect-ratio:3/1;">
+          <div class="piece-img-inner" style="background:linear-gradient(135deg,#F3E1B8 0%,#E0B35C 100%);"></div>
+          <div class="piece-img-inner" style="background:linear-gradient(135deg,#FFCC33 0%,#E89B1F 100%);"></div>
+          <div class="piece-img-inner" style="background:linear-gradient(135deg,#A8481E 0%,#4A1B0C 100%);"></div>
+        </div>
+        <div style="padding-top:14px; display:flex; justify-content:space-between; align-items:baseline; gap:12px;">
+          <div>
+            <div style="font-family:'Cormorant Garamond', serif; font-style:italic; font-size:14px; color:#111111;">Triptych II — Amber</div>
+            <div style="font-size:9px; letter-spacing:1px; text-transform:uppercase; color:#9A8468; margin-top:3px;">Oil on canvas, three panels, 60 × 90cm each — dawn, noon, dusk</div>
+          </div>
+          <a href="#inquire" style="font-size:9px; letter-spacing:1.5px; text-transform:uppercase; color:#111111; border-bottom:1px solid #111111; flex-shrink:0;">Inquire</a>
+        </div>
+      </div>
+
+      <div class="piece-card">
+        <div class="panel-row" style="aspect-ratio:3/1;">
+          <div class="piece-img-inner" style="background:linear-gradient(135deg,#F7C9BE 0%,#E88A6E 100%);"></div>
+          <div class="piece-img-inner" style="background:linear-gradient(135deg,#FF9E6D 0%,#E8623A 100%);"></div>
+          <div class="piece-img-inner" style="background:linear-gradient(135deg,#8C2B1E 0%,#3A0F0A 100%);"></div>
+        </div>
+        <div style="padding-top:14px; display:flex; justify-content:space-between; align-items:baseline; gap:12px;">
+          <div>
+            <div style="font-family:'Cormorant Garamond', serif; font-style:italic; font-size:14px; color:#111111;">Triptych III — Coral</div>
+            <div style="font-size:9px; letter-spacing:1px; text-transform:uppercase; color:#9A8468; margin-top:3px;">Oil on canvas, three panels, 60 × 90cm each — dawn, noon, dusk</div>
+          </div>
+          <a href="#inquire" style="font-size:9px; letter-spacing:1.5px; text-transform:uppercase; color:#111111; border-bottom:1px solid #111111; flex-shrink:0;">Inquire</a>
+        </div>
+      </div>
+
+      <div class="piece-card">
+        <div class="panel-row" style="aspect-ratio:3/1;">
+          <div class="piece-img-inner" style="background:linear-gradient(135deg,#E8D5A0 0%,#C9A24A 100%);"></div>
+          <div class="piece-img-inner" style="background:linear-gradient(135deg,#E0A93A 0%,#B9791F 100%);"></div>
+          <div class="piece-img-inner" style="background:linear-gradient(135deg,#7A3B12 0%,#331705 100%);"></div>
+        </div>
+        <div style="padding-top:14px; display:flex; justify-content:space-between; align-items:baseline; gap:12px;">
+          <div>
+            <div style="font-family:'Cormorant Garamond', serif; font-style:italic; font-size:14px; color:#111111;">Triptych IV — Ochre</div>
+            <div style="font-size:9px; letter-spacing:1px; text-transform:uppercase; color:#9A8468; margin-top:3px;">Oil on canvas, three panels, 60 × 90cm each — dawn, noon, dusk</div>
+          </div>
+          <a href="#inquire" style="font-size:9px; letter-spacing:1.5px; text-transform:uppercase; color:#111111; border-bottom:1px solid #111111; flex-shrink:0;">Inquire</a>
+        </div>
+      </div>
+
+      <div class="piece-card">
+        <div class="panel-row" style="aspect-ratio:3/1;">
+          <div class="piece-img-inner" style="background:linear-gradient(135deg,#F0C9C2 0%,#D98E88 100%);"></div>
+          <div class="piece-img-inner" style="background:linear-gradient(135deg,#E89C8A 0%,#C9604F 100%);"></div>
+          <div class="piece-img-inner" style="background:linear-gradient(135deg,#6E2A2E 0%,#2E1016 100%);"></div>
+        </div>
+        <div style="padding-top:14px; display:flex; justify-content:space-between; align-items:baseline; gap:12px;">
+          <div>
+            <div style="font-family:'Cormorant Garamond', serif; font-style:italic; font-size:14px; color:#111111;">Triptych V — Rosegold</div>
+            <div style="font-size:9px; letter-spacing:1px; text-transform:uppercase; color:#9A8468; margin-top:3px;">Oil on canvas, three panels, 60 × 90cm each — dawn, noon, dusk</div>
+          </div>
+          <a href="#inquire" style="font-size:9px; letter-spacing:1.5px; text-transform:uppercase; color:#111111; border-bottom:1px solid #111111; flex-shrink:0;">Inquire</a>
+        </div>
+      </div>
+
+      <div class="piece-card">
+        <div class="panel-row" style="aspect-ratio:3/1;">
+          <div class="piece-img-inner" style="background:linear-gradient(135deg,#E8B8A0 0%,#C97E5C 100%);"></div>
+          <div class="piece-img-inner" style="background:linear-gradient(135deg,#D98A4A 0%,#A8511F 100%);"></div>
+          <div class="piece-img-inner" style="background:linear-gradient(135deg,#5C2318 0%,#241008 100%);"></div>
+        </div>
+        <div style="padding-top:14px; display:flex; justify-content:space-between; align-items:baseline; gap:12px;">
+          <div>
+            <div style="font-family:'Cormorant Garamond', serif; font-style:italic; font-size:14px; color:#111111;">Triptych VI — Burnt Plum</div>
+            <div style="font-size:9px; letter-spacing:1px; text-transform:uppercase; color:#9A8468; margin-top:3px;">Oil on canvas, three panels, 60 × 90cm each — dawn, noon, dusk</div>
+          </div>
+          <a href="#inquire" style="font-size:9px; letter-spacing:1.5px; text-transform:uppercase; color:#111111; border-bottom:1px solid #111111; flex-shrink:0;">Inquire</a>
         </div>
       </div>
 
